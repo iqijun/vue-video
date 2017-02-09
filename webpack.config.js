@@ -24,7 +24,8 @@ module.exports = {
             // { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
             { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
             { test: /\.js$/, loader: 'babel',query:{compact:true} },
-            {test:/\.vue$/,loader:"babel!vue", exclude: "/node_modules/"}
+            {test:/\.vue$/,loader:"babel!vue", exclude: "/node_modules/"},
+            {test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'}
         ]
     },
     //其它解决方案配置
