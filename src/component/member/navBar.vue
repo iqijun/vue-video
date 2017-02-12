@@ -1,9 +1,8 @@
 <template>
     <div>
         <el-menu theme="dark" default-active="/memberIndex" router mode="horizontal" >
-            <el-menu-item index="/memberIndex">首页</el-menu-item>
-            <el-menu-item index="2">个人中心</el-menu-item>
-            <el-menu-item index="3">订单管理</el-menu-item>
+            <el-menu-item  v-for="nav in this.$store.state.res.navBars" :index="nav.nav_url">{{nav.nav_text}}</el-menu-item>
+
         </el-menu>
     </div>
 </template>
@@ -13,8 +12,23 @@
 </style>
 
 <script type="text/javascript">
-
+    import  vueResource from "vue-resource";
+    import  vue from "vue"
+    vue.use(vueResource);
     export default{
+        created(){
+            this.$store.dispatch("loadData",{url:this.APIConfig.API_NavBar,key:"navBars"})
+        },
+        data(){
+            return{
+//                navBars
+            }
+        },
+        computed:{
+//            navBars:()=>{
+//                return self.$store.state.res.navBars;
+//            }
+        }
 
     }
 
