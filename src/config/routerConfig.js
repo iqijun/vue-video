@@ -9,7 +9,7 @@ import VueRouter from "vue-router"
 
 export  const routerConfig=new VueRouter({
     routes: [
-        {path:"/memberIndex",component:memberIndex,name:"memberIndex",
+        {path:"/",component:memberIndex,name:"memberIndex",
             children:[
                  {path:"/vUp",component:videoUpload,name:"vUp"},
                  {path:"/vList",component:vList,name:"vList"}
